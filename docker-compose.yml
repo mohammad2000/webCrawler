@@ -1,0 +1,41 @@
+version: '4.31'
+services:
+  webcrawler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - "8090:8091"
+    networks:
+      - my_network
+
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URL: "mongodb://mongodb:27017/webcrawler"
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
+    ports:
+      - "27018:27017"
+    networks:
+      - my_network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: adminUser  # نام کاربری ادمین
+      MONGO_INITDB_ROOT_PASSWORD: 77222378  # رمز عبور ادمین
+      MONGO_INITDB_DATABASE: crawler
+  nginx:
+    image: nginx
+    depends_on:
+      - webcrawler
+    container_name: nginx_container
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:8090"
+    networks:
+      - my_network
+networks:
+  my_network:
+    driver: bridge

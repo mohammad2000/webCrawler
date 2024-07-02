@@ -1,0 +1,13 @@
+# crawler-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: webcrawler
+spec:
+  selector:
+    app: webcrawler
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort  # یا LoadBalancer اگر کلاستر شما از یک سرویس Load Balancer پشتیبانی می کند
