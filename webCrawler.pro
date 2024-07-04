@@ -1,5 +1,5 @@
 QT -= gui
-QT +=network sql xml
+QT +=network sql xml 
 greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     QT += webkitwidgets

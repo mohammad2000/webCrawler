@@ -25,6 +25,8 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 }
 int main(int argc, char *argv[])
 {
+
     QCoreApplication a(argc, argv);
+    qDebug()<<"salam";
     return a.exec();
 }

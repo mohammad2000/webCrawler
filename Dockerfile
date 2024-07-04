@@ -1,5 +1,5 @@
 # Use the official Ubuntu base image
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 ENV TZ=Iran/Tehran \
     DEBIAN_FRONTEND=noninteractive
 # Set the maintainer label
@@ -20,7 +20,11 @@ build-essential \
        qtwebengine5-dev \
         libqt5svg5-dev \
          libqt5websockets5-dev \
-         libqt5webkit5-dev 
+         libqt5webkit5-dev \
+         libmongoc-1.0-0 \
+         libmongoc-dev \
+         libbson-1.0 \
+         libbson-dev
 # Copy the project files to the container
 
 COPY . /app
