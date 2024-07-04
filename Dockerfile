@@ -32,9 +32,6 @@ WORKDIR /app
 # Set the working directory
 
 # Build the Qt project
-RUN ls
-RUN cd qamqp-master 
-RUN ls
 RUN qmake ./qamqp-master/
 RUN make ./qamqp-master/
 RUN make install ./qamqp-master/
